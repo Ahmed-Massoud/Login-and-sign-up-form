@@ -13,25 +13,31 @@
   --Second-color:#f2363c;
   --third-color:#573b8a;
 } 
+body,html{
+    width:100%;
+    height:100%;
+}
 body{
+
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background-image: url(background.gif);
   background-size:cover ;
   background-position:right;
 }
 #massage{
 opacity:0;
-position:fixed;
+position: absolute;
 top:0px;
 left:0px;
-    background-color:#0f0;
-    
+   
+    width:100%;
     animation-duration: 4s;
+    color:#000;
+    padding:6px;
     
   }
   
@@ -44,12 +50,14 @@ left:0px;
 }
  
 .main{
-  width: 350px;
+
+  width: 320px;
   background-color: #161624aa;
   height: 500px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
+  position: relative;
 }
 #chk{
   display: none;
@@ -163,10 +171,11 @@ label[for="chk"] {
 }
     </style>
 </head>
-<body>
-  <div id="mass"></div>
-	<div class="main">  	
-				
+<body onload="getScale()" >
+    <div id="container">
+  
+	<div class="main" id="main">  	
+				<div id="mass"></div>
 		<input type="checkbox" id="chk" >
 
 			<div class="signup">
@@ -202,7 +211,7 @@ label[for="chk"] {
 
     <div class="user-box">
 
-      <input type="text" title="Enter Username" id="username" required>
+      <input type="text" title="Enter Username" id="username2" required>
 
       <label>Username</label>
 
@@ -210,14 +219,15 @@ label[for="chk"] {
 
     <div class="user-box">
 
-      <input type="password" title="Enter password" id="password" required>
+      <input type="password" title="Enter password" id="password2" required>
 
       <label>Password</label>
 
     </div>
-					<button onclick="login()" id="botton">Login</button>
+					<button onclick="login()" id="button2">Login</button>
 
 			</div>
+	</div>
 	</div>
 </body>
 <script>
@@ -247,25 +257,45 @@ function totxt(e){
 
 
 
-function creatMassage(content){
+function creatMassage(content,type){
 let mass =document.getElementById("mass");
+
 
     mass.innerHTML=`
         <div id="massage">${content}</div>
         `
         let massage      
 =document.getElementById("massage");
-massage.style="animation-name:ani;";
 
-setTimeout(function(){
-        massage.style="animation-name:initial;"
-    }, 4000)
+if(type == true){
+    massage.style="background-color:green;animation-name:ani;";
+   
+}else if(type == false){
+    massage.style="background-color:#f2363c;animation-name:ani;";
+   
+}
+
 }
 
 
+function getScale(){
+    
+let body = document.getElementsByTagName("body")[0];
+    
+let main = document.getElementById("main");
+let container = document.getElementById("container");
+scaleValue=
+body.clientHeight / main.clientHeight
 
+container.style=`transform:scale(${scaleValue})`
+}
 
 function check(){
+
+
+
+
+
 
 let usernamePattern =/[\w-]{5,25}/igm;
    let emailPattern = /[\w]@[\w].[\w]/igm;
@@ -301,14 +331,14 @@ let passwordCorrect;
     
     
    if(usernameCorrect == false || emailCorrect == false ||  passwordCorrect == false ){
-    creatMassage("incorrect")
+    creatMassage("incorrect",false)
     }
     else{
- creatMassage("correct and added")
+ creatMassage("correct and added",true)
  
- let newUser ={ username:totxt(username),
- email:totxt(email),
- password: totxt(password),
+ let newUser ={ Username:totxt(username),
+ Email:totxt(email),
+ Password: totxt(password),
  } ;
 dataPro.push(newUser) ;
 localStorage.setItem("User" , JSON.stringify(dataPro))
@@ -330,7 +360,28 @@ function creatAccount(){
  
  
  function login(){
-     console.log('ok')
+ let username =document.getElementById("username2");
+
+    let password =document.getElementById("password2");
+    let button =document.getElementById("button2");
+
+     for (let i = 0; i < dataPro.length; i++) {
+  if(dataPro[i].Username == totxt(username)){
+    if(dataPro[i].Password==totxt(password)){
+        creatMassage("login Successed",true);
+    }else{
+        creatMassage("The password is incorrect",false);
+    }
+    break;
+}else{
+    if(dataPro.length-i==1){
+        creatMassage("Your username is in correct",false);
+    }
+    
+}
+
+}
+    
  }
 
 
