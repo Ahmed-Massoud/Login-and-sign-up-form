@@ -2,203 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
     <title>Page title</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@300;378&family=Source+Sans+Pro:ital@1&family=Zen+Antique&display=swap');
-*{
-  font-family: 'Red Hat Mono', monospace;
-}
-:root{
-  --First-color:#161624;
-  --Second-color:#f2363c;
-  --third-color:#573b8a;
-} 
-body,html{
-    width:100%;
-    height:100%;
-}
-body{
-
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(background.gif);
-  background-size:cover ;
-  background-position:right;
-}
-#massage{
-opacity:0;
-position: absolute;
-top:0px;
-left:0px;
-   
-    width:100%;
-    animation-duration: 4s;
-    color:#000;
-    padding:6px;
-    
-  }
-  
-  @keyframes ani {
-  0% {opacity: 0;}
-  20% {opacity: 1;}
-  80%{opacity:1}
-  100%{opacity:0;}
-
-}
- 
-.main{
-
-  width: 320px;
-  background-color: #161624aa;
-  height: 500px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 5px 20px 50px #000;
-  position: relative;
-}
-#chk{
-  display: none;
-}
-.signup{
-  position: relative;
-  width:100%;
-  height:100%;
-}
-.user-box {
-  position: relative;
-  width :60%;
-  margin:0px auto;
-}
-button{
-	width: 60%;
-	height: 40px;
-	margin: 10px auto;
-	justify-content: center;
-	display: block;
-	color: #fff;
-	background: #573b8a;
-	font-size: 1em;
-	font-weight: bold;
-	margin-top: 10px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	transition: .2s ease-in;
-	cursor: pointer;
-}
-hi
-button:hover{
-  background: #6d44b8;
-}
-.login{
-  height: 470px;
-  background: #eee;
-  border-radius: 60% / 10%;
-  transform: translateY(-180px);
-  transition: .8s ease-in-out;
-}
-#chk:checked ~ .login{
-  transform: translateY(-530px);
-}
-#chk:checked ~ .login label{
-  transform: scale(1);
-}
-#chk:checked ~ .signup .sig{
-  transform: scale(.6);
-  margin-top:10px;
-}
-.user-box label {
-  position: absolute;
-  top:0px;
-  left: 0px;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
-}
-.user-box .info{
-  right: 15px;
- position: absolute;
-  top:0px;
-  
- 
- background-color: #f2363c;
-  
-width:10px;
-height:10px;
-}
-.user-box input {
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-}
-.user-box input:focus ~ label,
-.user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #f2363c;
-  font-size: 12px;
-  font-weight:bold;
-}
-label[for="chk"] {
-	font-size: 2.3em;
-	justify-content: center;
-	display: flex;
-	font-weight: bold;
-	cursor: pointer;
-	transition: .5s ease-in-out;
-} 
-.sig{
-  color:#fff;
-	margin: 40px;
-}
-.log{
-	margin: 80px;
-}
-.login label , .login input{
-  color:#573b8a;
-}
-.login input{
-  border-color:#573b8a;
-}
-    </style>
+    <link rel="stylesheet" href="css/new.css">
+    <link rel="stylesheet" href="css/font.css">
 </head>
-<body onload="getScale()" >
+<body >
     <div id="container">
-  
-	<div class="main" id="main">  	
-				<div id="mass"></div>
-		<input type="checkbox" id="chk" >
-
-			<div class="signup">
+    <div class="main" id="main">  	
+    <input type="checkbox" id="chk" >
+  	 <div class="signup">
+		     <label for="chk" class="sig">Sign up</label>
 				
-					<label for="chk" class="sig">Sign up</label>
-				
-    <div class="user-box">
-      <input type="text" title="Enter Username" id="username" required autocomplete="off">
-      <label>Username</label>
-</svg>
-      <span class="info">
-         
-      </span>
-    </div>
-    <div class="user-box">
-      <input type="text" title="Enter email" id="email" required autocomplete="off">
-      <label>Email</label>
-    </div>
-    <div class="user-box">
-      <input type="password" title="Enter password" id="password" required autocomplete="off" >
-      <label>Password</label>
-    </div>
-          
+        <div class="user-box">
+            <input type="text" title="Enter Username" id="username" required autocomplete="off">
+     
+            <label>Username</label>
+     
+      
+            <img src="image/logo.svg" alt="Logo" class="logo-img" />
+      
+    
+      <i></i>
+        </div>
+        <div class="user-box">
+              <input type="text" title="Enter email" id="email" required autocomplete="off">
+              <label>Email</label>
+              <img src="image/logo.svg" alt="Logo" class="logo-img">
+        </div>
+        <div class="user-box">
+              <input type="password" title="Enter password" id="password" required autocomplete="off" >
+              <label>Password</label>
+              <img src="image/logo.svg" alt="Logo" class="logo-img">
+       </div>
+     
 					<button onclick="check()"id="button">Sign up</button>
 			
 			</div>
@@ -227,174 +64,9 @@ label[for="chk"] {
 					<button onclick="login()" id="button2">Login</button>
 
 			</div>
-	</div>
-	</div>
+	
+</div>
 </body>
-<script>
-    
-    
-   
-   
-   
-   
-    
- let dataPro =[];
- if (localStorage.User != null) {
- 
-  dataPro = JSON.parse(localStorage.User);
- }else{
-let dataPro = []
-}
-
- 
- 
- 
- 
-function totxt(e){
-    e=e.value;
-    return e;
-}
-
-
-
-function creatMassage(content,type){
-let mass =document.getElementById("mass");
-
-
-    mass.innerHTML=`
-        <div id="massage">${content}</div>
-        `
-        let massage      
-=document.getElementById("massage");
-
-if(type == true){
-    massage.style="background-color:green;animation-name:ani;";
-   
-}else if(type == false){
-    massage.style="background-color:#f2363c;animation-name:ani;";
-   
-}
-
-}
-
-
-function getScale(){
-    
-let body = document.getElementsByTagName("body")[0];
-    
-let main = document.getElementById("main");
-let container = document.getElementById("container");
-scaleValue=
-body.clientHeight / main.clientHeight
-
-container.style=`transform:scale(${scaleValue})`
-}
-
-function check(){
-
-
-
-
-
-
-let usernamePattern =/[\w-]{5,25}/igm;
-   let emailPattern = /[\w]@[\w].[\w]/igm;
-   let passwordPattern = /[A-Za-z0-9-]{8,16}/igm;
-let username =document.getElementById("username");
-    let email =document.getElementById("email");
-    let password =document.getElementById("password");
-    let button =document.getElementById("button");
-
-let usernameCorrect;
-let emailCorrect;
-let passwordCorrect;
-
-   
- 
- if(totxt(username).match(usernamePattern) == null){
-        usernameCorrect=false;
-    }
-    
-    if(totxt(email).match(emailPattern)== null){
-        emailCorrect=false;
-        }
-    if(totxt(password).match(passwordPattern) == null){
-        passwordCorrect=false;
-    }
-    
-    
-    
-    console.log(usernameCorrect);
-    console.log(emailCorrect);
-    console.log(passwordCorrect);
-    
-    
-    
-   if(usernameCorrect == false || emailCorrect == false ||  passwordCorrect == false ){
-    creatMassage("incorrect",false)
-    }
-    else{
- creatMassage("correct and added",true)
- 
- let newUser ={ Username:totxt(username),
- Email:totxt(email),
- Password: totxt(password),
- } ;
-dataPro.push(newUser) ;
-localStorage.setItem("User" , JSON.stringify(dataPro))
-
-
- }
-}
-
-
-
-
-function creatAccount(){
-/*
-
- 
-*/
-}
- 
- 
- 
- function login(){
- let username =document.getElementById("username2");
-
-    let password =document.getElementById("password2");
-    let button =document.getElementById("button2");
-    
-    
-    
-if(totxt(username)=="142021"&& totxt(password)=="142021"){
-    for (let i = 0; i < dataPro.length; i++) {
-    document.write("username: "+ dataPro[i].Username +`<br>` +"password: " + dataPro[i].Password +`<br>` + "email: " + dataPro[i].Email +`<hr>` )
-  }
-}
-else{
-     for (let i = 0; i < dataPro.length; i++) {
-  if(dataPro[i].Username == totxt(username)){
-    if(dataPro[i].Password==totxt(password)){
-        creatMassage("login Successed",true);
-    }else{
-        creatMassage("The password is incorrect",false);
-    }
-    break;
-}else{
-    if(dataPro.length-i==1){
-        creatMassage("Your username is in correct",false);
-    }
-    
-}
-
-}
-    
- }
-
-
-}
-
-</script>
-
+<script src="js/new.js"></script>
+<script src="js/sweetalert.min.js"></script>
 </html>
