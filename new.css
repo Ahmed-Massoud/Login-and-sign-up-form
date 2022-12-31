@@ -16,11 +16,12 @@ html {
     height: 100%;
 }
 
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("background.jpeg");
+    background-image: url("background.jpg");
     background-size: cover;
     background-position: left center;
 
@@ -188,3 +189,7 @@ label[for="chk"] {
 .login input {
     border-color: var(--third-color);
 }
+
+
+
+
