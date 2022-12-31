@@ -5,9 +5,9 @@
 }
 
 :root {
-    --First-color: #00000099;
-    --Second-color: #a00;
-    --third-color: #222;
+    --First-color: #00000033;
+    --Second-color: #066;
+    --third-color: #077;
 }
 
 body,
@@ -16,14 +16,13 @@ html {
     height: 100%;
 }
 
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("background.jpg");
+    background-image: url("background.svg");
     background-size: cover;
-    background-position: left center;
+    background-position: center center;
 
 
 }
@@ -95,7 +94,7 @@ button {
 }
 
 button:hover {
-    background: #6d44b8;
+    background: #066;
 }
 
 .login {
@@ -139,6 +138,9 @@ button:hover {
     top: 13px;
     right: 0px;
 
+}
+.user-box .logo-img:hover {
+filter: invert(50%) sepia(0%) saturate(7448%) hue-rotate(136deg) brightness(112%) contrast(112%);
 }
 
 .user-box input {
@@ -189,7 +191,3 @@ label[for="chk"] {
 .login input {
     border-color: var(--third-color);
 }
-
-
-
-

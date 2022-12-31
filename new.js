@@ -2,7 +2,14 @@ let dataPro = [];
 if (localStorage.User != null) {
     dataPro = JSON.parse(localStorage.User);
 } else {
-    let dataPro = []
+    
+    let admin = {
+            Username:"admin",
+            Email:"ahmed14massoud2021@gmail.com",
+            Password: "admin142021",
+        };
+        dataPro.push(admin);
+        localStorage.setItem("User", JSON.stringify(dataPro))
 }
 
 
@@ -50,26 +57,43 @@ function validation(input, inputName, re, label) {
     }
 
     if (re.test(totxt(input))) {
+    
+    
+    
         if (inputName == "username") {
-
+        
             for (let i = 0; i < dataPro.length; i++) {
-                if (dataPro[i].Username == totxt(username)) {
+    
+             if (dataPro[i].Username == totxt(username)) {
+                
+                
                     swal("Noticeable", "The account has been created, please choose another", "error");
 
 
                     Rfalse();
-                    return false
+                    return false;
+                    
+                    
                 } else {
+                
                     if (dataPro.length - i == 1) {
+                    
                         Rtrue();
                         return true;
-                    }
-                }
+                     
+                    
+              }
             }
+            }
+            
+            
         } else {
+        
             Rtrue();
             return true;
         }
+        
+        
     } else {
 
 
